@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HBD, Dimi Winanda A.Md.Kom</title>
+    <style>
+        /* CSS untuk tampilan halaman */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url("temen.jpeg") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* CSS untuk gambar yang berputar */
+        #rotating-image {
+            width: 450px;
+            height: 450px;
+            animation: rotate 4s linear infinite; /* Animasi putar selama 4 detik dan berulang terus */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg); /* Gambar dimulai dari sudut 0 derajat */
+            }
+            to {
+                transform: rotate(360deg); /* Gambar berputar hingga 360 derajat (sudut penuh) */
+            }
+        }
+        /* CSS untuk elemen lirik */
+        #lyrics-container {
+            width: 85%;
+            text-align: center;
+            margin-top: 40px; /* Jarak yang lebih besar dari atas */
+        }
+
+        #lyrics {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            font-style: italic;
+            font-display: swap;
+            font-size: 24px;
+            white-space: nowrap;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        /* CSS untuk "person-info" dan "special-message" */
+        #person-info {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Latar belakang putih transparan */
+            padding: 20px;
+            width: 70%; /* Misalnya, lebar 70% dari kontainer */
+            margin: 0 auto;
+            color: black; /* Warna teks */
+        }
+
+        #special-message {
+            text-align: center;
+            background-color: rgba(255, 255,255, 0.7); /* Latar belakang putih transparan */
+            padding: 20px;
+            width: 70%; /* Misalnya, lebar 70% dari kontainer */
+            margin: 0 auto;
+            color: black; /* Warna teks */
+        }
+
+        /* CSS untuk "love-container" */
+        #love-container {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        #love-container h1 {
+        color: black;
+        font-family: "Arial", sans-serif;
+        font-size: 24px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+}
+
+        #love-container img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%; /* Menampilkan gambar secara penuh */
+            height: auto;
+        }
+
+        
+        #person-info, #special-message {
+            text-align: center;
+            font-family: "Arial", sans-serif;
+            font-size: 16px;
+            margin: 10px 0;
+            line-height: 1.5;
+            color: white;
+        }
+
+        #person-info {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        #special-message {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: white; text-align: center; margin-bottom: 20px;">Nadhif Basalamah - Penjaga hati</h1>
+    <div id="audio-container">
+        <audio id="myAudio" controls>
+            <source src="nadhif basalamah - penjaga hati.mp3" type="audio/mpeg">
+            Maaf, browser Anda tidak mendukung pemutar musik ini.
+        </audio>
+    </div>
+    <div id="lyrics-container">
+        <div id="lyrics">Mari Bernyanyi Bersama</div>
+    </div>
+    <div id="love-container">
+        <h1 style="color: #FFFFFF; text-align: center; margin-top: 40px; margin-bottom: 20px;">Tentang Lagu Ini</h1>
+        <img id="rotating-image" src="kaset.png" alt="Gambar Putar">
+        <div id="person-info">
+            <p>HBD DIMI!!! &hearts; </p>
+            <p>Yang Ke 22 tahun</p>
+        </div>
+        <div id="special-message">
+            <p>Makasi masih bertahan jadi kawanku, ehe. <br><br>
+                Pibesday anak baik, semoga yang disemogakan tersemogkan. <3></p>
+        </div>
+        
+    <script>
+        var audio = document.getElementById("myAudio");
+        var lyricsContainer = document.getElementById("lyrics-container");
+        var lyricsText = document.getElementById("lyrics");
+
+        var lyrics = [
+            { time: 33, text: "Tak Sadar Ku Temukan" },
+            { time: 37, text: "Temukan Wanita Rupawan Yang Sadarkan" },
+            { time: 42, text: "Dia Seorang Tiada Lain Tiada Bukan" },
+            { time: 48, text: "Hanya Dia" },
+            { time: 57, text: "Dia Buatku Nyaman" },
+            { time: 63, text: "Dalam Hangat Pelukan" },
+            { time: 67, text: "Dia Perasa, Yang Mengerti Yang Kurasa" },
+            { time: 73, text: "Hanya Dia" },
+            { time: 88, text: "Kan Ku Arungi Tujuh Laut Samudra" },
+            { time: 85, text: "Kan Ku Daki Pegunungan Himalaya" },
+            { time: 92, text: "Apapun Kan Ku Lakukan Tuk Dirimu Sayang" },
+            { time: 97.3, text: "Oh Penjaga Hati" },
+            { time: 113, text: "Kau Dan Aku Sempurna" },
+            { time: 117.2, text: "Semoga Ada Cara Tuk Terus Bersama" },
+            { time: 122, text: "Selalu Ku Tunggu" },
+            { time: 125, text: "Tak Mau Berlalu" },
+            { time: 128.6, text: "Kau Dan Aku" },
+            { time: 135, text: "Kan Ku Arungi Tujuh Laut Samudra" },
+            { time: 140, text: "Kan Ku Daki Pegunungan Himalaya" },
+            { time: 147, text: "Apapun Kan Ku Lakukan Tuk Dirimu Sayang" },
+            { time: 152.3, text: "Oh Penjaga Hatiku" },
+            { time: 160, text: "Interlude" },
+            { time: 185, text: "Kan Ku Arungi Tujuh Laut Samudra" },
+            { time: 190, text: "Kan Ku Daki Pegunungan Himalaya" },
+            { time: 197, text: "Apapun Kan Ku Lakukan Tuk Dirimu Sayang" },
+            { time: 202.3, text: "Oh Penjaga Hatiku" },
+            { time: 209, text: "Karna Bersamamu Semua Terasa Indah" },
+            { time: 215, text: "Gundah Gulana Hatiku Tlah Hancur Sirna" },
+            { time: 221, text: "Janji Ku Tak Kan Ku Lepas Wahai Kau Bidadariku Dari Surga" },
+            { time: 230, text: "Tuk Selamanya" },
+            { time: 246, text: "Once Again, HBD DIMI! " }
+                ];
+
+        audio.addEventListener("timeupdate", function() {
+            for (var i = 0; i < lyrics.length; i++) {
+                if (audio.currentTime > lyrics[i].time) {
+                    lyricsText.innerHTML = lyrics[i].text;
+                    var animationDuration = (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration) - lyrics[i].time;
+                    lyricsText.style.animation = `moveText ${animationDuration}s linear`;
+                }
+            }
+        });
+         <footer style="text-align: center; margin-top: 20px;">
+        <p>&copy; 2023 First Inpression, bin. All rights reserved.</p>
+        </footer>
+    </script>
+</body>
+</html>
