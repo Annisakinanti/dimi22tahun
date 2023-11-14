@@ -77,18 +77,19 @@
 
         /* CSS untuk "love-container" */
         #love-container {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         #love-container h1 {
-        color: black;
-        font-family: "Arial", sans-serif;
-        font-size: 24px;
-        margin-top: 40px;
-        margin-bottom: 20px;
-}
+            color: black;
+            font-family: "Arial", sans-serif;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
 
         #love-container img {
             display: block;
@@ -97,7 +98,7 @@
             height: auto;
         }
 
-        
+
         #person-info, #special-message {
             text-align: center;
             font-family: "Arial", sans-serif;
@@ -124,7 +125,7 @@
         </audio>
     </div>
     <div id="lyrics-container">
-        <div id="lyrics">Mari Bernyanyi Bersama</div>
+        <div id="lyrics">Mari Nyanyi Bareng Bareng Dim - by Kinan</div>
     </div>
     <div id="love-container">
         <h1 style="color: #FFFFFF; text-align: center; margin-top: 40px; margin-bottom: 20px;">Tentang Lagu Ini</h1>
@@ -137,13 +138,14 @@
             <p>Makasi masih bertahan jadi kawanku, ehe. <br><br>
                 Pibesday anak baik, semoga yang disemogakan tersemogkan. <3></p>
         </div>
-        
+    </div>
+
     <script>
         var audio = document.getElementById("myAudio");
         var lyricsContainer = document.getElementById("lyrics-container");
         var lyricsText = document.getElementById("lyrics");
 
-        var lyrics = [
+         var lyrics = [
             { time: 33, text: "Tak Sadar Ku Temukan" },
             { time: 37, text: "Temukan Wanita Rupawan Yang Sadarkan" },
             { time: 42, text: "Dia Seorang Tiada Lain Tiada Bukan" },
@@ -176,19 +178,30 @@
             { time: 230, text: "Tuk Selamanya" },
             { time: 246, text: "Once Again, HBD DIMI! " }
                 ];
-
         audio.addEventListener("timeupdate", function() {
             for (var i = 0; i < lyrics.length; i++) {
                 if (audio.currentTime > lyrics[i].time) {
                     lyricsText.innerHTML = lyrics[i].text;
-                    var animationDuration = (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration) - lyrics[i].time;
+                    var nextTime = lyrics[i + 1] ? lyrics[i + 1].time : audio.duration;
+                    var animationDuration = nextTime - lyrics[i].time;
                     lyricsText.style.animation = `moveText ${animationDuration}s linear`;
                 }
             }
         });
-         <footer style="text-align: center; margin-top: 20px;">
-        <p>&copy; 15/11/2023. All rights reserved.</p>
-        </footer>
+
+        // Add this line to reset the animation when the audio is paused
+        audio.addEventListener("pause", function() {
+            lyricsText.style.animation = "";
+        });
+
+        // Add this line to reset the animation when the audio is ended
+        audio.addEventListener("ended", function() {
+            lyricsText.style.animation = "";
+        });
     </script>
+
+    <footer style="text-align: center; margin-top: 20px;">
+        <p>&copy; 15/11/2023. All rights reserved.</p>
+    </footer>
 </body>
 </html>
